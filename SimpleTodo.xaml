@@ -1,0 +1,84 @@
+﻿<my:MetroWindow
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
+    mc:Ignorable="d" x:Class="SimpleTODO.Simple"
+    Title="Simple TODO" Height="656" Width="466" x:Name="SimpleWindow" 
+    Closing="SimpleWindow_Closing" Loaded="SimpleWindow_Loaded" 
+    xmlns:my="http://metro.mahapps.com/winfx/xaml/controls"
+	MinWidth="466" MaxWidth="466" my:WindowSettings.Save="True">
+    <!---->
+    
+    <Window.Resources>       
+    <ResourceDictionary>
+        <ResourceDictionary.MergedDictionaries>
+            <ResourceDictionary Source="Services/MyBrush.xaml"/>
+            <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colours.xaml" />
+            <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+            <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+            <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Green.xaml" />
+            <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseDark.xaml" />
+        </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+    </Window.Resources>
+
+    <my:MetroWindow.WindowCommands>
+        <my:WindowCommands>
+            <Button Content="About" Name="btnAbout" />
+            <Button Content="Clear all" Name="btnClr" Click="button2_Click"/>
+        </my:WindowCommands>
+    </my:MetroWindow.WindowCommands>
+
+	<Grid Background="{x:Null}">
+        <TextBox Height="46" my:TextboxHelper.Watermark="Start adding your tasks here " HorizontalAlignment="Left" Margin="10,8.5,0,0" x:Name="textBox1" VerticalAlignment="Top" Width="426" 
+                 Text="" TabIndex="1" GotFocus="textBox1_GotFocus" LostFocus="textBox1_LostFocus" FontSize="18" my:TextboxHelper.ClearTextButton="True" Panel.ZIndex="1"/>
+        <Button Content="Add" Height="43" HorizontalAlignment="Left" Margin="350,8,0,0" x:Name="button1" VerticalAlignment="Top" 
+                Width="80" Click="button1_Click" FontSize="18" FontWeight="Normal" />
+        <Label Content="Recently done !" Height="36" x:Name="label1" Foreground="#FF7C7C7C" FontSize="21.333" FontStyle="Italic" FontFamily="SketchFlow Print" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,194.4,-396.334,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="191" IsHitTestVisible="False" Background="{x:Null}" d:LayoutOverrides="HorizontalAlignment" Visibility="Hidden" />
+        
+        <TabControl x:Name="tabControl" Margin="0,47,0,0" TabStripPlacement="Top"  >
+        	<TabItem Header="Not Done">
+        		<Grid Background="#FFE5E5E5">
+        			<ScrollViewer VerticalScrollBarVisibility="Auto"  Margin="0" Background="{StaticResource BrushToDo}" 
+        				x:Name="scroll_Current" FontSize="18">
+        				<StackPanel  x:Name="list_Current" Width="407" RenderTransformOrigin="0.5,0.5">
+        					<StackPanel.Effect>
+        						<DropShadowEffect Color="#FF878787" Opacity="0.38"/>
+        					</StackPanel.Effect>
+        					<StackPanel.RenderTransform>
+        						<TransformGroup>
+        							<ScaleTransform ScaleY="0.99995"/>
+        							<SkewTransform/>
+        							<RotateTransform/>
+        							<TranslateTransform/>
+        						</TransformGroup>
+        					</StackPanel.RenderTransform>
+                
+        					<!--<my:TaskControl x:Name="taskControl1" isCheck_Done="False" isCheck_Star="False" taskText="task one tada" />-->
+        				</StackPanel>            
+        			</ScrollViewer>
+        		</Grid>
+        	</TabItem>
+        	<TabItem Header="          DONE">
+        		<Grid Background="#FFE5E5E5">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" x:Name="scroll_Done" Background="{DynamicResource BrushToDo}" FontFamily="Segoe UI" FontSize="18.667">
+        				<StackPanel x:Name="list_Done" Width="402" RenderTransformOrigin="0.5,0.5">
+        					<StackPanel.RenderTransform>
+        						<TransformGroup>
+        							<ScaleTransform ScaleY="0.99" />
+        							<SkewTransform />
+        							<RotateTransform />
+        							<TranslateTransform />
+        						</TransformGroup>
+        					</StackPanel.RenderTransform>
+        				</StackPanel>
+        			</ScrollViewer>
+        		</Grid>
+        	</TabItem>
+        </TabControl>
+    <Label Content="0" Height="33" HorizontalAlignment="Left" Margin="146,59,0,0" x:Name="countUndone" VerticalAlignment="Top" FontWeight="Normal" FontSize="18.667" Background="Red" IsHitTestVisible="False" />
+        <Label Content="0" Height="34.276" Margin="0,58,95,0" HorizontalAlignment="Right" x:Name="countDone" VerticalAlignment="Top" FontWeight="Normal"  FontSize="18.667" d:LayoutOverrides="HorizontalAlignment" Background="Red" IsHitTestVisible="False" />
+    </Grid>
+</my:MetroWindow>
