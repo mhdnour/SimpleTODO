@@ -1,4 +1,10 @@
-SimpleTODO is WPF to do app
+ SimpleTODO
+
+So simple ToDo app using WPF (.Net 4.0) No complex steps or categories just enter the text of your to do (task) then hit Enter
+
+the Metro like UI thanks to
+
+github.com/MahApps/MahApps.Metro
 
 to use:
 
