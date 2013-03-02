@@ -1,0 +1,126 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing" 
+             x:Class="SimpleTODO.SimpleTask.Data.TaskControl" 
+             mc:Ignorable="d" d:DesignWidth="273" d:DesignHeight="39">
+    <UserControl.Resources>
+    	<LinearGradientBrush x:Key="brush_Black" EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+    		<GradientStop Color="White" />
+    		<GradientStop Color="Black" Offset="1" />
+    		<GradientStop Color="White" Offset="1" />
+    		<GradientStop Color="Black" />
+    	</LinearGradientBrush>
+    	<LinearGradientBrush x:Key="brush_Blue" EndPoint="0.5,1" StartPoint="0.5,0">
+    		<GradientStop Color="#FFB8C200" Offset="0.056" />
+    		<GradientStop Color="#FFB8C200" Offset="1"/>
+    	</LinearGradientBrush>
+    	<LinearGradientBrush x:Key="brush_Silver" EndPoint="0.5,1" StartPoint="0.5,0">
+    		<GradientStop Color="#FF767676" Offset="1" />
+    		<GradientStop Color="#FF00543B" Offset="0.9" />
+    		<GradientStop Color="#FF9D9D9D" Offset="0" />
+    		<GradientStop Color="#FF0B5942" Offset="0.04"/>
+    	</LinearGradientBrush>
+    	<LinearGradientBrush x:Key="brush_DoneGreen" EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+    		<GradientStop Color="#FF31763C" Offset="0.024"/>
+    		<GradientStop Color="#FF15973A" Offset="0.964"/>
+    	</LinearGradientBrush>
+    	<LinearGradientBrush x:Key="brush_Brown" EndPoint="0.5,1" StartPoint="0.5,0">
+    		<GradientStop Color="#FF767676" Offset="1" />
+    		<GradientStop Color="#FF3F3008" Offset="0.944" />
+    		<GradientStop Color="#FF59440B"/>
+    	</LinearGradientBrush>
+    	<Style x:Key="CheckBoxImportant" TargetType="{x:Type CheckBox}">
+    		<Setter Property="FontFamily" Value="{DynamicResource ContentFontFamily}"/>
+    		<Setter Property="FontSize" Value="{DynamicResource ContentFontSize}"/>
+    		<Setter Property="Background" Value="{DynamicResource CheckBoxBackgroundBrush}"/>
+    		<Setter Property="Foreground" Value="{DynamicResource TextBrush}"/>
+    		<Setter Property="HorizontalContentAlignment" Value="Left"/>
+    		<Setter Property="VerticalContentAlignment" Value="Top"/>
+    		<Setter Property="Padding" Value="4,1,0,0"/>
+    		<Setter Property="BorderThickness" Value="1"/>
+    		<Setter Property="BorderBrush" Value="{DynamicResource CheckBoxBrush}"/>
+    		<Setter Property="Template">
+    			<Setter.Value>
+    				<ControlTemplate TargetType="{x:Type CheckBox}">
+    					<Grid Margin="0">
+    						<VisualStateManager.VisualStateGroups>
+    							<VisualStateGroup x:Name="CommonStates">
+    								<VisualState x:Name="Normal"/>
+    								<VisualState x:Name="MouseOver"/>
+    								<VisualState x:Name="Pressed"/>
+    								<VisualState x:Name="Disabled"/>
+    							</VisualStateGroup>
+    							<VisualStateGroup x:Name="CheckStates">
+    								<VisualState x:Name="Checked">
+    									<Storyboard>
+    										<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="regularPolygon">
+    											<EasingColorKeyFrame KeyTime="0" Value="#FFFFEA00"/>
+    										</ColorAnimationUsingKeyFrames>
+    									</Storyboard>
+    								</VisualState>
+    								<VisualState x:Name="Unchecked"/>
+    								<VisualState x:Name="Indeterminate"/>
+    							</VisualStateGroup>
+    							<VisualStateGroup x:Name="FocusStates">
+    								<VisualState x:Name="Focused">
+    									<Storyboard/>
+    								</VisualState>
+    								<VisualState x:Name="Unfocused"/>
+    							</VisualStateGroup>
+    							<VisualStateGroup x:Name="ValidationStates">
+    								<VisualState x:Name="Valid"/>
+    								<VisualState x:Name="InvalidUnfocused"/>
+    								<VisualState x:Name="InvalidFocused"/>
+    							</VisualStateGroup>
+    						</VisualStateManager.VisualStateGroups>
+    						<ed:RegularPolygon x:Name="regularPolygon" Height="Auto" InnerRadius="0.47211" Margin="0" PointCount="5" Stretch="Fill" Width="Auto" Fill="#FF707070" Stroke="Black" StrokeThickness="0.5"/>
+    					</Grid>
+    				</ControlTemplate>
+    			</Setter.Value>
+    		</Setter>
+    	</Style>
+    </UserControl.Resources>
+
+<Border >
+
+        <Border x:Name="border" BorderThickness="0"  Background="{DynamicResource brush_Blue}"
+			BorderBrush="#FF878787" Margin="0,3,0,3"><!---->
+        
+        <Border.ContextMenu>
+            <ContextMenu>
+            	<MenuItem Header="Move Up" x:Name="menu_moveUp" />
+				<MenuItem Header="Move Down" x:Name="menu_moveDown"/>
+                <MenuItem Header="Edit" x:Name="menu_edittxt" Click="menu_edittxt_Click" />
+                <MenuItem Header="Change Color" x:Name="Coloring" >
+                    <MenuItem Header="Black" x:Name="menu_blackColor" Click="menu_blackColor_Click" ToolTip="Defult"/>
+                    <MenuItem Header="Done Green" x:Name="menu_blueColor" Click="menu_blueColor_Click" ToolTip="Blue and white" />
+                    <MenuItem Header="Silver-Green" x:Name="menu_whiteColor" Click="menu_whiteColor_Click" ToolTip="Silver and green" />
+					<MenuItem Header="Yellow" x:Name="menu_DoneColor" ToolTip="Green " Click="menu_yellowColor_Click"/>
+					<MenuItem Header="Brown" x:Name="menu_bronColor" ToolTip="Green " Click="menu_BrColor_Click"/>
+                </MenuItem>
+            </ContextMenu>
+        </Border.ContextMenu>
+        <Grid>
+            <CheckBox HorizontalAlignment="Left" Margin="7.833,3.984,0,0" x:Name="checkBox_Status" Click="checkBox_Status_Click"  
+                       Width="14.003" d:LayoutOverrides="HorizontalAlignment" Height="14.002" VerticalAlignment="Top" ToolTip="Click to mark as done"/>
+	        <!---->
+        	<CheckBox HorizontalAlignment="Left" Margin="34.833,0.996,0,0" x:Name="checkBox_Star" Width="24.833" Style="{DynamicResource CheckBoxImportant}" Height="26.002" VerticalAlignment="Top" 
+        	           />
+        	<!---->
+        	
+	        <TextBlock x:Name="textBlock" Foreground="White"   
+			           ToolTip="{Binding Text, ElementName=textBlock}" Margin="62.501,0,0,0" 
+	                   TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto" />
+	        
+        	<TextBox Height="{Binding Height, ElementName=textBlock}" HorizontalAlignment="Left" Margin="62.501,0,0,0"
+        	         VerticalAlignment="Top" Width="{Binding Width, ElementName=textBlock}" IsHitTestVisible="False"
+	                 TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Visibility="Hidden" KeyUp="textBox1_KeyUp" 
+	                 x:Name="textBox1" ToolTip="Type the new text then hit Enter 2 finish editing" FontSize="18"/>
+	    	        
+        </Grid>
+    </Border>	
+</Border>	
+</UserControl>

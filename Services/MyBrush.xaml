@@ -1,0 +1,18 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+
+    <VisualBrush x:Key="BrushToDo" TileMode="Tile" Viewport="0,0,25,35" 
+			ViewportUnits="Absolute" Viewbox="0,0,5,25" ViewboxUnits="Absolute">
+        <VisualBrush.Visual >
+            <Canvas>
+                <!--#FFAAC462 old brush backgound-->
+                <Border Background="#FFFFF589" Width="15" Height="30" 
+					BorderThickness="0,0.5,0.5,0.5" BorderBrush="#FF7A7A7A"/>
+                <!--Line Stroke="AliceBlue" Height="15" StrokeThickness="3"-->
+            </Canvas>
+        </VisualBrush.Visual>
+    </VisualBrush>
+
+
+</ResourceDictionary>
