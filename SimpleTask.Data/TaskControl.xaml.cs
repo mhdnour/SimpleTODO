@@ -21,7 +21,7 @@ namespace SimpleTODO.SimpleTask.Data
             chkbox = checkBox_Status;
         }
 
-        // proberties ...
+        
         /// <summary>
         /// set or get the background color
         /// </summary>
@@ -109,6 +109,7 @@ namespace SimpleTODO.SimpleTask.Data
             set
             {
                 textBlock.Text = value;
+
                 //textBlock.AppendText(value);
                 
             }

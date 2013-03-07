@@ -33,9 +33,9 @@
     		<GradientStop Color="#FF59440B"/>
     	</LinearGradientBrush>
     	<Style x:Key="CheckBoxImportant" TargetType="{x:Type CheckBox}">
-    		<Setter Property="FontFamily" Value="{DynamicResource ContentFontFamily}"/>
-    		<Setter Property="FontSize" Value="{DynamicResource ContentFontSize}"/>
-    		<Setter Property="Background" Value="{DynamicResource CheckBoxBackgroundBrush}"/>
+    		<Setter Property="FontFamily" Value="Arial"/>
+    		<Setter Property="FontSize" Value="9"/>
+    		<Setter Property="Background" Value="Transparent"/>
     		<Setter Property="Foreground" Value="{DynamicResource TextBrush}"/>
     		<Setter Property="HorizontalContentAlignment" Value="Left"/>
     		<Setter Property="VerticalContentAlignment" Value="Top"/>

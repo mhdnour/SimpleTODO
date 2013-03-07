@@ -80,9 +80,7 @@ namespace SimpleTODO
         }
         // resotre the database :p (last saved works)
         private void SimpleWindow_Loaded(object sender, RoutedEventArgs e)
-        {
-            
-
+        {            
             try
             {
                 textBox1.Focusable = true;
@@ -107,22 +105,13 @@ namespace SimpleTODO
                 else
                 {
                     //Create the file.
-                    using (FileStream fs = File.Create(path))
-                    {
-                        XElement Open = XElement.Load(path);
-                        foreach (XElement task in Open.Element("Tasks").Elements())
-                        {
-                            DeserializeGates(task);
-                        }
-                    }
+                    FileStream fs = File.Create(path);
+                    // and nothing to load yet
                 }
                 countDone.Content = list_Done.Children.Count;
                 countUndone.Content = list_Current.Children.Count;
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            } 
+            catch {} 
               
 
         }
@@ -211,6 +200,8 @@ namespace SimpleTODO
 
                 list_Done.Children.Clear();
                 list_Current.Children.Clear();
+
+                countDone.Content = countUndone.Content = 0;
             }
         }
 

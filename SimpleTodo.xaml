@@ -32,16 +32,16 @@
     </my:MetroWindow.WindowCommands>
 
 	<Grid Background="{x:Null}">
-        <TextBox Height="46" my:TextboxHelper.Watermark="Start adding your tasks here " HorizontalAlignment="Left" Margin="10,8.5,0,0" x:Name="textBox1" VerticalAlignment="Top" Width="426" 
-                 Text="" TabIndex="1" GotFocus="textBox1_GotFocus" LostFocus="textBox1_LostFocus" FontSize="18" my:TextboxHelper.ClearTextButton="True" Panel.ZIndex="1"/>
-        <Button Content="Add" Height="43" HorizontalAlignment="Left" Margin="350,8,0,0" x:Name="button1" VerticalAlignment="Top" 
-                Width="80" Click="button1_Click" FontSize="18" FontWeight="Normal" />
-        <Label Content="Recently done !" Height="36" x:Name="label1" Foreground="#FF7C7C7C" FontSize="21.333" FontStyle="Italic" FontFamily="SketchFlow Print" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,194.4,-396.334,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="191" IsHitTestVisible="False" Background="{x:Null}" d:LayoutOverrides="HorizontalAlignment" Visibility="Hidden" />
+        <TextBox Height="46" my:TextboxHelper.Watermark="Start adding your tasks here "  Margin="10,8.5,8,0" x:Name="textBox1" VerticalAlignment="Top"  
+                 Text="" TabIndex="1" GotFocus="textBox1_GotFocus" LostFocus="textBox1_LostFocus" FontSize="18" my:TextboxHelper.ClearTextButton="True" Panel.ZIndex="1" VerticalContentAlignment="Center"/>
+        <Button Content="Add" Height="33" HorizontalAlignment="Left" Margin="347,14,0,0" x:Name="button1" VerticalAlignment="Top" 
+                Width="33" Click="button1_Click" FontSize="18" FontWeight="Normal" />
         
-        <TabControl x:Name="tabControl" Margin="0,47,0,0" TabStripPlacement="Top"  >
+        
+        <TabControl x:Name="tabControl" Margin="0,47,0,1" TabStripPlacement="Top" Background="{StaticResource BrushToDo}" >
         	<TabItem Header="Not Done">
-        		<Grid Background="#FFE5E5E5">
-        			<ScrollViewer VerticalScrollBarVisibility="Auto"  Margin="0" Background="{StaticResource BrushToDo}" 
+        		<Grid >
+        			<ScrollViewer VerticalScrollBarVisibility="Auto"  Margin="0"  
         				x:Name="scroll_Current" FontSize="18">
         				<StackPanel  x:Name="list_Current" Width="407" RenderTransformOrigin="0.5,0.5">
         					<StackPanel.Effect>
@@ -61,9 +61,9 @@
         			</ScrollViewer>
         		</Grid>
         	</TabItem>
-        	<TabItem Header="          DONE">
-        		<Grid Background="#FFE5E5E5">
-                    <ScrollViewer VerticalScrollBarVisibility="Auto" x:Name="scroll_Done" Background="{DynamicResource BrushToDo}" FontFamily="Segoe UI" FontSize="18.667">
+        	<TabItem Header="          DONE" >
+        		<Grid >
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" x:Name="scroll_Done" FontFamily="Segoe UI" FontSize="18.667">
         				<StackPanel x:Name="list_Done" Width="402" RenderTransformOrigin="0.5,0.5">
         					<StackPanel.RenderTransform>
         						<TransformGroup>
@@ -78,7 +78,10 @@
         		</Grid>
         	</TabItem>
         </TabControl>
-    <Label Content="0" Height="33" HorizontalAlignment="Left" Margin="146,59,0,0" x:Name="countUndone" VerticalAlignment="Top" FontWeight="Normal" FontSize="18.667" Background="Red" IsHitTestVisible="False" />
-        <Label Content="0" Height="34.276" Margin="0,58,95,0" HorizontalAlignment="Right" x:Name="countDone" VerticalAlignment="Top" FontWeight="Normal"  FontSize="18.667" d:LayoutOverrides="HorizontalAlignment" Background="Red" IsHitTestVisible="False" />
+        
+        <Label Content="0" Height="33" Margin="285,49,0,0" HorizontalAlignment="Left" x:Name="countDone" VerticalAlignment="Top" FontWeight="Normal"  FontSize="18.667" d:LayoutOverrides="HorizontalAlignment" Background="{x:Null}" IsHitTestVisible="False" Foreground="#FF5C5C5C" />
+        <Label Content="0" x:Name="countUndone" FontWeight="Normal" FontSize="18.667" IsHitTestVisible="False"
+               Panel.ZIndex="1" Foreground="#FF00B500" Margin="125,49,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        
     </Grid>
 </my:MetroWindow>
