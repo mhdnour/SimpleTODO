@@ -11,8 +11,8 @@ using System.Windows;
 [assembly: AssemblyDescription("Simple to do list app for daily use :P")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Simple TODO")]
-[assembly: AssemblyCopyright("Copyright ©")]
+[assembly: AssemblyProduct("Simple TODO v3.0 beta1")]
+[assembly: AssemblyCopyright("Copyright © mhdnour")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -51,5 +51,5 @@ using System.Windows;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.0.1.7")]
-[assembly: AssemblyFileVersion("2.0.1.9")]
+[assembly: AssemblyVersion("3.0.0.0")]
+[assembly: AssemblyFileVersion("3.0.0.0")]

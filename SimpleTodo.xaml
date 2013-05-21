@@ -8,7 +8,7 @@
     Title="Simple TODO" Height="656" Width="466" x:Name="SimpleWindow" 
     Closing="SimpleWindow_Closing" Loaded="SimpleWindow_Loaded" 
     xmlns:my="http://metro.mahapps.com/winfx/xaml/controls"
-	MinWidth="466" MaxWidth="466" my:WindowSettings.Save="True">
+	MinWidth="466" MaxWidth="466" my:WindowSettings.Save="True" ShowIconOnTitleBar="False">
     <!---->
     
     <Window.Resources>       
@@ -26,8 +26,8 @@
 
     <my:MetroWindow.WindowCommands>
         <my:WindowCommands>
-            <Button Content="About" Name="btnAbout" />
-            <Button Content="Clear all" Name="btnClr" Click="button2_Click"/>
+            <Button Content="About" Name="btnAbout" Click="btnAbout_Click" />
+            <Button Content="Settings" Name="btnClr" Click="button2_Click"/>
         </my:WindowCommands>
     </my:MetroWindow.WindowCommands>
 
@@ -43,7 +43,8 @@
         		<Grid >
         			<ScrollViewer VerticalScrollBarVisibility="Auto"  Margin="0"  
         				x:Name="scroll_Current" FontSize="18">
-        				<StackPanel  x:Name="list_Current" Width="407" RenderTransformOrigin="0.5,0.5">
+        				<StackPanel  x:Name="list_Current" Width="407" RenderTransformOrigin="0.5,0.5" AllowDrop="True"
+                                      >
         					<StackPanel.Effect>
         						<DropShadowEffect Color="#FF878787" Opacity="0.38"/>
         					</StackPanel.Effect>
@@ -77,6 +78,16 @@
         			</ScrollViewer>
         		</Grid>
         	</TabItem>
+    <TabItem Header="     Settings" Name="settingsTab">
+        <Grid >
+            <StackPanel Name="stackPan">
+                <Button Content="2" />
+                <Button Content="1" />
+                <Button Content="3" />
+            </StackPanel>
+            
+        </Grid>
+    </TabItem>
         </TabControl>
         
         <Label Content="0" Height="33" Margin="285,49,0,0" HorizontalAlignment="Left" x:Name="countDone" VerticalAlignment="Top" FontWeight="Normal"  FontSize="18.667" d:LayoutOverrides="HorizontalAlignment" Background="{x:Null}" IsHitTestVisible="False" Foreground="#FF5C5C5C" />

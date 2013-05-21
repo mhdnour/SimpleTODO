@@ -16,41 +16,32 @@ namespace SimpleTODO
         public Simple()
         {
             InitializeComponent();
-            //b = new Binding();
-            //b.ElementName = list_Current.Name;
-            //b.Path = new PropertyPath(list_Current.Children.Count);
-            //countUndone.Content = b;
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             if (textBox1.Text != "")
+            {
                 CreateTask(false, false, textBox1.Text, ColorTasks.Black);
+                scroll_Current.ScrollToEnd();
+                textBox1.Text = "";
+                countUndone.Content = list_Current.Children.Count;
+            }
             else
                 MessageBox.Show("Task cannot be empty");
-            scroll_Current.ScrollToEnd();
-			textBox1.Text = "";
         }
         // Visual
         private void checkBox_Status_Click(object sender, RoutedEventArgs e)
         {
-            //
-            //MessageBox.Show((sender as CheckBox).IsChecked.Value.ToString());
-
-            //if ((sender as TaskControl).isCheck_Done == true)      ERROR :|
             if ((sender as CheckBox).IsChecked == true)
             {
-                //(sender as TaskControl).isCheck_Done = true; // must be done inside the control it self                
                 list_Current.Children.Remove((((((sender as Control).Parent as Grid).Parent as Border).Parent as Border).Parent as TaskControl));
-                //list_Done.Children.Add((sender as TaskControl));
                 list_Done.Children.Add((((((sender as Control).Parent as Grid).Parent as Border).Parent as Border).Parent as TaskControl));
                 scroll_Done.ScrollToEnd();
             }
             else
             {
-                //(sender as TaskControl).isCheck_Done = true; // must be done inside the control it self                
                 list_Done.Children.Remove((((((sender as Control).Parent as Grid).Parent as Border).Parent as Border).Parent as TaskControl));
-                //list_Done.Children.Add((sender as TaskControl));
                 list_Current.Children.Add((((((sender as Control).Parent as Grid).Parent as Border).Parent as Border).Parent as TaskControl));
                 scroll_Current.ScrollToEnd();
             }
@@ -204,6 +195,34 @@ namespace SimpleTODO
                 countDone.Content = countUndone.Content = 0;
             }
         }
+
+        private void btnAbout_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        /* 
+         * http://stackoverflow.com/questions/2373343/sorting-elements-in-a-stackpanel-wpf
+         * 
+         * to make filters like: (show stared only, show only selected colors ... etc)
+         * and if you want to use move up/down:
+         * 
+         * 
+         * 
+         * The answer above is correct, but if you can not change your stackpanel 
+         * (if you have not enough time, or have written many codes related to the stackpanel) try this:
+
+            Store the controls in a List or Dictionary
+            Sort the List or Dictionary
+            Remove controls from stackpanel using : StackPanel.Children.Remove(child)
+            Foreach member of List or Dictionary add controls to StackPanel using : StackPanel.Children.Insert(i, child);
+
+            note: the code is working, Remove function removes the control from StackPanel item's (from the tree) 
+         * but the control is already on the memory 
+         * so that the control is able to inserting in any StackPanel or same of it.
+         * 
+         * 
+         */
 
     }
 }

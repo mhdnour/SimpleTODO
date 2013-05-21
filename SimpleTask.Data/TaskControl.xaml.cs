@@ -10,8 +10,10 @@ namespace SimpleTODO.SimpleTask.Data
     /// </summary>
     public partial class TaskControl : UserControl
     {
-        
-        public CheckBox chkbox = new CheckBox();
+
+        public CheckBox chkbox;
+        public CheckBox starcheck;
+
         private TextDecoration td = new TextDecoration();
         private ColorTasks ColorID;
 
@@ -19,6 +21,7 @@ namespace SimpleTODO.SimpleTask.Data
         {
             InitializeComponent();
             chkbox = checkBox_Status;
+            starcheck = checkBox_Star;
         }
 
         

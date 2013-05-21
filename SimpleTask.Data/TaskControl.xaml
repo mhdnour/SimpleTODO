@@ -5,18 +5,14 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing" 
              x:Class="SimpleTODO.SimpleTask.Data.TaskControl" 
-             mc:Ignorable="d" d:DesignWidth="273" d:DesignHeight="39">
+             mc:Ignorable="d" d:DesignWidth="387" d:DesignHeight="67">
     <UserControl.Resources>
     	<LinearGradientBrush x:Key="brush_Black" EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-    		<GradientStop Color="White" />
-    		<GradientStop Color="Black" Offset="1" />
-    		<GradientStop Color="White" Offset="1" />
-    		<GradientStop Color="Black" />
-    	</LinearGradientBrush>
+            <GradientStop Color="#FF285DB7" />
+        </LinearGradientBrush>
     	<LinearGradientBrush x:Key="brush_Blue" EndPoint="0.5,1" StartPoint="0.5,0">
-    		<GradientStop Color="#FFB8C200" Offset="0.056" />
-    		<GradientStop Color="#FFB8C200" Offset="1"/>
-    	</LinearGradientBrush>
+            <GradientStop Color="Yellow" />
+        </LinearGradientBrush>
     	<LinearGradientBrush x:Key="brush_Silver" EndPoint="0.5,1" StartPoint="0.5,0">
     		<GradientStop Color="#FF767676" Offset="1" />
     		<GradientStop Color="#FF00543B" Offset="0.9" />
@@ -36,7 +32,7 @@
     		<Setter Property="FontFamily" Value="Arial"/>
     		<Setter Property="FontSize" Value="9"/>
     		<Setter Property="Background" Value="Transparent"/>
-    		<Setter Property="Foreground" Value="{DynamicResource TextBrush}"/>
+            <Setter Property="Foreground" Value="AliceBlue"/>
     		<Setter Property="HorizontalContentAlignment" Value="Left"/>
     		<Setter Property="VerticalContentAlignment" Value="Top"/>
     		<Setter Property="Padding" Value="4,1,0,0"/>
@@ -103,23 +99,19 @@
                 </MenuItem>
             </ContextMenu>
         </Border.ContextMenu>
+            
         <Grid>
             <CheckBox HorizontalAlignment="Left" Margin="7.833,3.984,0,0" x:Name="checkBox_Status" Click="checkBox_Status_Click"  
                        Width="14.003" d:LayoutOverrides="HorizontalAlignment" Height="14.002" VerticalAlignment="Top" ToolTip="Click to mark as done"/>
-	        <!---->
         	<CheckBox HorizontalAlignment="Left" Margin="34.833,0.996,0,0" x:Name="checkBox_Star" Width="24.833" Style="{DynamicResource CheckBoxImportant}" Height="26.002" VerticalAlignment="Top" 
-        	           />
-        	<!---->
-        	
+        	           />      	
 	        <TextBlock x:Name="textBlock" Foreground="White"   
 			           ToolTip="{Binding Text, ElementName=textBlock}" Margin="62.501,0,0,0" 
-	                   TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto" />
-	        
+	                   TextWrapping="Wrap" FontSize="15"/>	        
         	<TextBox Height="{Binding Height, ElementName=textBlock}" HorizontalAlignment="Left" Margin="62.501,0,0,0"
         	         VerticalAlignment="Top" Width="{Binding Width, ElementName=textBlock}" IsHitTestVisible="False"
 	                 TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Visibility="Hidden" KeyUp="textBox1_KeyUp" 
-	                 x:Name="textBox1" ToolTip="Type the new text then hit Enter 2 finish editing" FontSize="18"/>
-	    	        
+	                 x:Name="textBox1" ToolTip="Type the new text then hit Enter 2 finish editing" FontSize="18"/>	    	        
         </Grid>
     </Border>	
 </Border>	

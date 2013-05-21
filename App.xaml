@@ -1,7 +1,7 @@
 ﻿<Application x:Class="Todolist001.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             StartupUri="SimpleToDo.xaml">
+             StartupUri="SimpleModWindow.xaml">
 	
 	<!--StartupUri="MainWindow.xaml"-->
     <Application.Resources>
