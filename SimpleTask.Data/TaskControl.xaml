@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing" 
              x:Class="SimpleTODO.SimpleTask.Data.TaskControl" 
-             mc:Ignorable="d" d:DesignWidth="387" d:DesignHeight="67">
+             mc:Ignorable="d" d:DesignWidth="387" d:DesignHeight="44">
     <UserControl.Resources>
     	<LinearGradientBrush x:Key="brush_Black" EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
             <GradientStop Color="#FF285DB7" />
@@ -83,31 +83,31 @@
 <Border >
 
         <Border x:Name="border" BorderThickness="0"  Background="{DynamicResource brush_Blue}"
-			BorderBrush="#FF878787" Margin="0,3,0,3"><!---->
-        
+			BorderBrush="#FF878787" Margin="0,3,0,3"><!---->     
         <Border.ContextMenu>
             <ContextMenu>
-            	<MenuItem Header="Move Up" x:Name="menu_moveUp" />
-				<MenuItem Header="Move Down" x:Name="menu_moveDown"/>
                 <MenuItem Header="Edit" x:Name="menu_edittxt" Click="menu_edittxt_Click" />
                 <MenuItem Header="Change Color" x:Name="Coloring" >
-                    <MenuItem Header="Black" x:Name="menu_blackColor" Click="menu_blackColor_Click" ToolTip="Defult"/>
-                    <MenuItem Header="Done Green" x:Name="menu_blueColor" Click="menu_blueColor_Click" ToolTip="Blue and white" />
-                    <MenuItem Header="Silver-Green" x:Name="menu_whiteColor" Click="menu_whiteColor_Click" ToolTip="Silver and green" />
-					<MenuItem Header="Yellow" x:Name="menu_DoneColor" ToolTip="Green " Click="menu_yellowColor_Click"/>
-					<MenuItem Header="Brown" x:Name="menu_bronColor" ToolTip="Green " Click="menu_BrColor_Click"/>
+                    <MenuItem Header="Dark Blue" Background="{DynamicResource brush_Black}" x:Name="menu_blackColor" Click="menu_blackColor_Click" ToolTip="Defult"/>
+					<MenuItem Header="Yellow" Background="{DynamicResource brush_Blue}" x:Name="menu_DoneColor" ToolTip="Green " Click="menu_yellowColor_Click"/>                    
+                    <MenuItem Header="Done Green" Background="{DynamicResource brush_Silver}" x:Name="menu_blueColor" Click="menu_blueColor_Click" ToolTip="Blue and white" />
+                    <MenuItem Header="Silver-Green" Background="{DynamicResource brush_DoneGreen}" x:Name="menu_whiteColor" Click="menu_whiteColor_Click" ToolTip="Silver and green" />
+					<MenuItem Header="Brown" Background="{DynamicResource brush_Brown}" x:Name="menu_bronColor" ToolTip="Green " Click="menu_BrColor_Click"/>
                 </MenuItem>
             </ContextMenu>
         </Border.ContextMenu>
             
-        <Grid>
+        <Grid MouseEnter="Grid_MouseEnter" MouseLeave="Grid_MouseLeave">
+            <Button Name="Remove" Content="X"  HorizontalAlignment="Right" Width="21" Margin="0,1,0,0" Panel.ZIndex="9" Foreground="Red" FontWeight="Bold"   Visibility="Hidden" Height="20" VerticalAlignment="Top"/>
             <CheckBox HorizontalAlignment="Left" Margin="7.833,3.984,0,0" x:Name="checkBox_Status" Click="checkBox_Status_Click"  
                        Width="14.003" d:LayoutOverrides="HorizontalAlignment" Height="14.002" VerticalAlignment="Top" ToolTip="Click to mark as done"/>
         	<CheckBox HorizontalAlignment="Left" Margin="34.833,0.996,0,0" x:Name="checkBox_Star" Width="24.833" Style="{DynamicResource CheckBoxImportant}" Height="26.002" VerticalAlignment="Top" 
         	           />      	
 	        <TextBlock x:Name="textBlock" Foreground="White"   
-			           ToolTip="{Binding Text, ElementName=textBlock}" Margin="62.501,0,0,0" 
-	                   TextWrapping="Wrap" FontSize="15"/>	        
+			           Margin="62.501,0,0,0" TextWrapping="Wrap" FontSize="15">
+                <Hyperlink Name="hyperlinkxaml">                    
+                </Hyperlink>
+            </TextBlock>	        
         	<TextBox Height="{Binding Height, ElementName=textBlock}" HorizontalAlignment="Left" Margin="62.501,0,0,0"
         	         VerticalAlignment="Top" Width="{Binding Width, ElementName=textBlock}" IsHitTestVisible="False"
 	                 TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Visibility="Hidden" KeyUp="textBox1_KeyUp" 

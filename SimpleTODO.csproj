@@ -81,13 +81,7 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MahApps.Metro, Version=0.10.0.1, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\MahApps.Metro.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Expression.Drawing" />
-    <Reference Include="Microsoft.Expression.Interactions" />
-    <Reference Include="PresentationFramework.Aero" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Interactivity" />
@@ -113,9 +107,6 @@
     <Compile Include="SimpleModWindow.xaml.cs">
       <DependentUpon>SimpleModWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SimpleTodo.xaml.cs">
-      <DependentUpon>SimpleTodo.xaml</DependentUpon>
-    </Compile>
     <Compile Include="SimpleTask.Data\ColorTasks.cs" />
     <Compile Include="SimpleTask.Data\TaskControl.xaml.cs">
       <DependentUpon>TaskControl.xaml</DependentUpon>
@@ -129,10 +120,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SimpleModWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="SimpleTodo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -185,9 +172,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="simpletodo.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Lib\MahApps.Metro.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

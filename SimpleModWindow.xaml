@@ -4,13 +4,42 @@
         Title="Simple TODO v3.0" Height="659" Width="778" WindowStyle="None" 
         Background="#FF030303" Foreground="White" AllowsTransparency="True"
         ResizeMode="NoResize" Closing="window_Closing" Loaded="window_Loaded">
-    <Border BorderBrush="#FF858585" BorderThickness="0.5">
+    <Border BorderBrush="#FFD4AA16" BorderThickness="1">
 		<Grid>
-			<Label Height="47" HorizontalAlignment="Left" Margin="0,40,0,0" x:Name="WindowTheme" VerticalAlignment="Top" Width="11" Background="#FF18FF4D" />
-			<Label Content="{Binding Title, ElementName=window}" Height="28" HorizontalAlignment="Left" Margin="63,12,0,0" x:Name="WindowTitle" VerticalAlignment="Top" Foreground="White" FontSize="15" FontWeight="Normal" FontStyle="Normal" />
-			<Label x:Name="CloseLbl" Content="x" HorizontalAlignment="Right" VerticalAlignment="Top" Foreground="{Binding Background, ElementName=WindowTheme}" Margin="0,0,4,0" FontWeight="Bold" FontSize="14.667" MouseLeftButtonUp="CloseLbl_MouseLeftButtonUp" MouseEnter="CloseLbl_MouseEnter" MouseLeave="CloseLbl_MouseLeave" MouseDown="CloseLbl_MouseDown" Panel.ZIndex="1" ToolTip="Close" />
-			<Label x:Name="MiniMizLbl" Content="_" HorizontalAlignment="Right" VerticalAlignment="Top" Foreground="{Binding Background, ElementName=WindowTheme}" Margin="0,-9,23,0" FontSize="18.667" FontWeight="Bold" MouseLeftButtonUp="MiniMizLbl_MouseLeftButtonUp" MouseEnter="MiniMizLbl_MouseEnter" MouseLeave="MiniMizLbl_MouseLeave" MouseDown="MiniMizLbl_MouseDown" Panel.ZIndex="1" ToolTip="Minimize" />
-            <Grid Height="95" Name="grid1" VerticalAlignment="Top" MouseDown="grid1_MouseDown">
+            <Grid Name="gridSettings" Background="#FF343434" Panel.ZIndex="3" Visibility="Hidden">
+                <Button Content="Archive Done tasks" Height="34" HorizontalAlignment="Right" Margin="0,0,34,98" 
+                        Name="btnArchive" VerticalAlignment="Bottom" Width="228" Click="btnArchive_Click" 
+                        FontSize="15" IsEnabled="False" />
+
+                <Button Content="Clear Done tasks" Height="34" HorizontalAlignment="Left" Margin="132,181,0,0" Name="button1" VerticalAlignment="Top" Width="228" Click="button1_Click" FontSize="15" />
+                <Button Content="Clear All tasks" Height="34" HorizontalAlignment="Left" Margin="132,229,0,0" Name="button2" VerticalAlignment="Top" Width="228" Click="button2_Click" FontSize="15" />
+                <Button Content="Close Settings" Height="37" Margin="216,0,207,41" Name="button3" VerticalAlignment="Bottom" Click="button3_Click" FontSize="15" />
+                <Label Content="App Settings:" Height="78" HorizontalAlignment="Left" Margin="85,54,0,0" Name="label1" VerticalAlignment="Top" Foreground="{Binding ElementName=WindowTheme, Path=Background}" FontSize="31" Width="242" />
+                <Button Content="Import tasks from older version" Height="23" HorizontalAlignment="Right" Margin="0,0,34,196" Name="button4" VerticalAlignment="Bottom" Width="228" IsEnabled="False" />
+                <Button Content="Backup your tasks to Cloud" Height="23" HorizontalAlignment="Right" Margin="0,0,34,167" Name="button5" VerticalAlignment="Bottom" Width="228" IsEnabled="False" />
+                <Button Content="Restore your tasks from Cloud" Height="23" HorizontalAlignment="Right" Margin="0,0,34,138" Name="button6" VerticalAlignment="Bottom" Width="228" IsEnabled="False" />
+                <Label Content="Next release:" FontSize="23" Foreground="{Binding ElementName=WindowTheme, Path=Background}" Height="49" HorizontalAlignment="Right" Margin="0,0,51,209" Name="label2" VerticalAlignment="Bottom" Width="228" FontWeight="Normal" ToolTip="Hope so" />
+            </Grid>
+			<Label Height="47" HorizontalAlignment="Left" Margin="0,40,0,0" x:Name="WindowTheme" VerticalAlignment="Top" Width="11" Background="#FF18FF4D" Panel.ZIndex="5" />
+			<Label Content="{Binding Title, ElementName=window}" Height="33" HorizontalAlignment="Left" Margin="63,12,0,0" x:Name="WindowTitle" VerticalAlignment="Top" Foreground="White" FontSize="15" FontWeight="Normal" FontStyle="Normal" Panel.ZIndex="5" />
+			<Label x:Name="CloseLbl" Content="x" HorizontalAlignment="Right" VerticalAlignment="Top" 
+                   Foreground="{Binding Background, ElementName=WindowTheme}" Margin="0,0,4,0" 
+                   FontWeight="Bold" FontSize="14.667" MouseLeftButtonUp="CloseLbl_MouseLeftButtonUp" 
+                   MouseEnter="CloseLbl_MouseEnter" MouseLeave="CloseLbl_MouseLeave" 
+                   MouseDown="CloseLbl_MouseDown" Panel.ZIndex="5" ToolTip="Close" />
+			<Label x:Name="MiniMizLbl" Content="_" HorizontalAlignment="Right" VerticalAlignment="Top" 
+                   Foreground="{Binding Background, ElementName=WindowTheme}" Margin="0,-9,23,0" 
+                   FontSize="18.667" FontWeight="Bold" MouseLeftButtonUp="MiniMizLbl_MouseLeftButtonUp" 
+                   MouseEnter="MiniMizLbl_MouseEnter" MouseLeave="MiniMizLbl_MouseLeave" 
+                   MouseDown="MiniMizLbl_MouseDown" Panel.ZIndex="5" ToolTip="Minimize" />
+
+            <Label x:Name="settingsLbl" Content="Settings" HorizontalAlignment="Right" VerticalAlignment="Top" 
+                   Foreground="{Binding Background, ElementName=WindowTheme}" Margin="0,5,112,0" 
+                   MouseLeftButtonUp="settingsLbl_MouseLeftButtonUp" 
+                   MouseEnter="settingsLbl_MouseEnter" MouseLeave="settingsLbl_MouseLeave" 
+                   MouseDown="settingsLbl_MouseDown" Panel.ZIndex="4" ToolTip="Show App Settings" />
+
+            <Grid Height="95" Name="grid1" VerticalAlignment="Top" MouseDown="grid1_MouseDown" Panel.ZIndex="3">
                 <Grid.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#3BFFFFFF" Offset="0" />
