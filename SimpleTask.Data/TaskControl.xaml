@@ -105,8 +105,6 @@
         	           />      	
 	        <TextBlock x:Name="textBlock" Foreground="White"   
 			           Margin="62.501,0,0,0" TextWrapping="Wrap" FontSize="15">
-                <Hyperlink Name="hyperlinkxaml">                    
-                </Hyperlink>
             </TextBlock>	        
         	<TextBox Height="{Binding Height, ElementName=textBlock}" HorizontalAlignment="Left" Margin="62.501,0,0,0"
         	         VerticalAlignment="Top" Width="{Binding Width, ElementName=textBlock}" IsHitTestVisible="False"

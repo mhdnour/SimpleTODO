@@ -2,24 +2,15 @@
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Text.RegularExpressions;
-using System.Windows.Documents;
-using System;
-using System.Windows.Navigation;
-using System.Diagnostics;
 
 namespace SimpleTODO.SimpleTask.Data
 {
-    /// <summary>
-    /// Interaction logic for TaskControl.xaml
-    /// </summary>
+
     public partial class TaskControl : UserControl
     {
 
         public CheckBox chkbox;
         public CheckBox starcheck;
-        //public Button removeme;
-
         private TextDecoration td = new TextDecoration();
         private ColorTasks ColorID;
 
@@ -28,7 +19,6 @@ namespace SimpleTODO.SimpleTask.Data
             InitializeComponent();
             chkbox = checkBox_Status;
             starcheck = checkBox_Star;
-            //removeme = this.Remove;
         }
 
         
@@ -114,14 +104,11 @@ namespace SimpleTODO.SimpleTask.Data
             get
             {
                 return textBlock.Text;
-                //return textBlock.ToString();
+                
             }
             set
             {
-                textBlock.Text = value;
-                ConvertToHyperlinkedText(textBlock.Text);
-                //textBlock.AppendText(value);
-                
+                textBlock.Text = value;                
             }
         }
 
@@ -179,42 +166,6 @@ namespace SimpleTODO.SimpleTask.Data
         {
             //border.Background = (Brush)this.FindResource("brush_Silver");
             colorID = ColorTasks.Brown;
-        }
-
-        private void ConvertToHyperlinkedText(string GetText)
-        {
-
-            Regex Regex = new Regex("http(s)?://([\\w+?\\.\\w+])+([a-zA-Z0-9\\~\\!\\@\\#\\$\\%\\^\\&amp;\\*\\(\\)_\\-\\=\\+\\\\\\/\\?\\.\\:\\;\\'\\,]*)?", RegexOptions.IgnoreCase);
-            //Paragraph para = new Paragraph();
-            Hyperlink hyp = new Hyperlink();
-
-            foreach (Match Match in Regex.Matches(GetText))
-            {
-                string link = Match.Value;
-                int link_start = Match.Index;
-                int link_end = Match.Index + link.Length;
-
-                //para.Inlines.Add(Strings.Mid(GetText, 0, link_start - 1));
-
-                Hyperlink hyperLink = new Hyperlink { NavigateUri = new Uri(link) };
-                hyperLink.Inlines.Add(link);
-                hyperLink.NavigateUri = new Uri(link);
-
-                hyperLink.RequestNavigate += new RequestNavigateEventHandler(delegate(object sender, RequestNavigateEventArgs e)
-                {
-                    Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
-                    e.Handled = true;
-                });
-                hyperlinkxaml = hyperLink;
-            }
-
-
-            //try
-            //{
-            //    if (hyp != null)
-            //        textBlock.Text.Replace(GetText, hyp.NavigateUri.ToString());
-            //}
-            //catch { }
         }
 
         private void Grid_MouseEnter(object sender, MouseEventArgs e)

@@ -8,10 +8,10 @@ using System.Windows;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Simple TODO")]
-[assembly: AssemblyDescription("Simple to do list app for daily use :P")]
+[assembly: AssemblyDescription("Simple TODO Using WPF")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Simple TODO v3.0 beta1")]
+[assembly: AssemblyCompany("http://mhdnour.github.io/SimpleTODO/")]
+[assembly: AssemblyProduct("Simple TODO v3.1")]
 [assembly: AssemblyCopyright("Copyright © mhdnour")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -51,5 +51,5 @@ using System.Windows;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("3.0.0.0")]
-[assembly: AssemblyFileVersion("3.0.0.0")]
+[assembly: AssemblyVersion("3.1.0.0")]
+[assembly: AssemblyFileVersion("3.1.0.0")]

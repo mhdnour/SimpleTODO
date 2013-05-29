@@ -1,18 +1,45 @@
  SimpleTODO:
 
-As the name of my app it's so simple ToDo using WPF (.Net 4.0) 
-No complex steps or categories just enter the text of your task then hit Enter
-You can add star to your todo (important), select multiColor
+New WebPAGE: 
 
-Screenshot: https://www.dropbox.com/s/uvafa2z3fy0yoi9/SimpleTODOv3.0.png
+http://mhdnour.github.io/SimpleTODO/
 
-What's new in  V3.0:
+As the name of my app it's so simple ToDo using WPF (.Net 4.0) No complex steps or categories just enter the text of your task then hit Enter You can add star to your todo (important), select multiColor
 
-- Improved the UI (all new design).
-- Improved the performance (run and close faster than before after removing some Libraries).
-- Now you can remove all tasks and/or done tasks (from settings).
-- Remove one task.
+What's new
+v3.1:
+
+    More personlization (change theme color, window ... etc) "still in dev"
+    Created new page to keep history of all versions
+
+v3.0:
+
+    Improved the UI (all new design).
+    Improved the performance (run and close faster than before after removing some Libraries).
+    Now you can remove all tasks and/or done tasks (from settings).
+    Remove one task.
 
 Download:
 
-http://www.softpedia.com/get/Office-tools/Diary-Organizers-Calendar/Simple-TO-DO.shtml
+(Please don't mirror my links, and always refer to this page: http://mhdnour.github.io/SimpleTODO )
+
+From softpedia: http://www.softpedia.com/get/Office-tools/Diary-Organizers-Calendar/Simple-TO-DO.shtml
+
+Alternative Links:
+
+v3.1
+-
+
+v3.0
+- Portable: https://www.dropbox.com/s/a5mql0zs7heyn0m/SimpleTODO_v3.0_ReleasePreview_Portable.zip
+- Installer: https://www.dropbox.com/s/v8f54ei1qdzuz32/SimpleTODO_v3.0_ReleasePreview_Installer.exe
+
+TODO:
+
+    Multi-languages
+    Add support to backup to Online storage (Dropbox, Box.com ... etc)
+    keep adding more features (from feedback)
+
+Source code:
+
+you can get latest source code from my git: https://github.com/mhdnour/simpletodo

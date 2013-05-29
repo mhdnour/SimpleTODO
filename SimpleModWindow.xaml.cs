@@ -17,17 +17,6 @@ using SimpleTODO.Services;
 using System.Xml.Linq;
 using System.IO;
 
-
-/*
- * todo yet:
- * 
- * save+load inside background worker
- * some animations when selecting todo or done or stared lists...
- * save my works to cloud ????
- * adding more color ... but dont wanna 2 use another libraries ?!?!?
- * and finally settings to change the theme color
- * 
- */
 namespace SimpleTODO
 {
     /// <summary>
@@ -39,8 +28,6 @@ namespace SimpleTODO
         private ObservableCollection<TaskControl> tasksobsTodo = new ObservableCollection<TaskControl>();
         private ObservableCollection<TaskControl> tasksobsDone = new ObservableCollection<TaskControl>();
         private List<TaskControl> stared = new List<TaskControl>();
-
-        private bool IsSave = false;
 
         public SimpleModWindow()
         {
@@ -117,7 +104,7 @@ namespace SimpleTODO
         {
             if (textBox1.Text != "" && e.Key == Key.Enter)
             {
-                //MessageBox.Show("Ok");
+
                 CreateTask(false, false, textBox1.Text, ColorTasks.Blue);
                 scrollViewer1.ScrollToEnd();
                 textBox1.Text = "";
@@ -136,7 +123,7 @@ namespace SimpleTODO
             // needed when open from xml
             if (newTask.isCheck_Done == true)
                 tasksobsDone.Add(newTask);
-            else// change it to another list ........................................??????????
+            else// change it to another list .
                 tasksobsTodo.Add(newTask);
             if (newTask.isCheck_Star == true)
                 stared.Add(newTask);
@@ -164,8 +151,6 @@ namespace SimpleTODO
                 stared.Add(tasky);
             else
                 stared.Remove(tasky);
-            //MessageBox.Show(StaredCount.ToString());
-            //countStar.Text = stared.Count.ToString();
         }
 
         private void checkBox_Status_Click(object sender, RoutedEventArgs e)
@@ -233,10 +218,6 @@ namespace SimpleTODO
                 }
             }
             catch { } 
-
-
-            //IsSave = false;
-            //SaveLoadInBG();
         }
 
         private void DeserializeGates(XElement task)
@@ -346,52 +327,32 @@ namespace SimpleTODO
 
         }
 
+        private void listBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            WindowTheme.Background = (listBoxtheme.SelectedItem as ListBoxItem).Background;
+
+            // save changes
+        }
+
+        private void listBox_Copy_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //window.Background = (listBoxwindow.SelectedItem as ListBoxItem).Background; 
+
+            /*
+             * change: font color, the icon color, selection in listboxs
+             * 
+             * etc etc
+             * 
+             */
+   
+        }
+
+        private void Hyperlink_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://mhdnour.github.io/SimpleTODO");
+        }
+
     }
 
-    /// <summary>
-    /// Who is the caller for the background worker?
-    /// </summary>
-    public enum BackGroundCaller
-    {
-        Save,
-        Load
-    }
+
 }
-/*
- *  read from xml file and place all the items in the observlist ... idont know check 
- *  stackoverflow for it
- *  
- * then foreach(item in this list)
- * 
- * if isStar = true
- * 
- * newlist.add(item)
- * 
- * and can change while changin the selections from 
- * Done
- * todo
- * important
- */
-
-/* 
- * http://stackoverflow.com/questions/2373343/sorting-elements-in-a-stackpanel-wpf
- * 
- * to make filters like: (show stared only, show only selected colors ... etc)
- * and if you want to use move up/down:
- * 
- * 
- * 
- * The answer above is correct, but if you can not change your stackpanel 
- * (if you have not enough time, or have written many codes related to the stackpanel) try this:
-
-    Store the controls in a List or Dictionary
-    Sort the List or Dictionary
-    Remove controls from stackpanel using : StackPanel.Children.Remove(child)
-    Foreach member of List or Dictionary add controls to StackPanel using : StackPanel.Children.Insert(i, child);
-
-    note: the code is working, Remove function removes the control from StackPanel item's (from the tree) 
- * but the control is already on the memory 
- * so that the control is able to inserting in any StackPanel or same of it.
- * 
- * 
- */

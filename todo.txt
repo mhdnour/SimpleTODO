@@ -1,5 +1,0 @@
-next release:
-
-- autodetect hyperlinks ?
-- fixes
-
