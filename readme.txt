@@ -28,11 +28,12 @@ From softpedia: http://www.softpedia.com/get/Office-tools/Diary-Organizers-Calen
 Alternative Links:
 
 v3.1
--
+- https://www.dropbox.com/s/kmqrlzocez4g51e/SimpleTODO_v3.1_Portable.zip
+- https://www.dropbox.com/s/qnfywx1w5r3lx0d/SimpleTODO_v3.1_Installer.exe
 
 v3.0
-- Portable: https://www.dropbox.com/s/a5mql0zs7heyn0m/SimpleTODO_v3.0_ReleasePreview_Portable.zip
-- Installer: https://www.dropbox.com/s/v8f54ei1qdzuz32/SimpleTODO_v3.0_ReleasePreview_Installer.exe
+- https://www.dropbox.com/s/a5mql0zs7heyn0m/SimpleTODO_v3.0_ReleasePreview_Portable.zip
+- https://www.dropbox.com/s/v8f54ei1qdzuz32/SimpleTODO_v3.0_ReleasePreview_Installer.exe
 
 TODO:
 
